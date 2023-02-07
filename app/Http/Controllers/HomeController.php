@@ -14,36 +14,15 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(Request $request)
+    public function index()
     {
-        if (view()->exists($request->path())) {
-            return view($request->path());
-        }
-        return abort(404);
-        // $project = Project::with('client', 'category', 'task', 'member')->get();
-        // $task = Task::with('project')->get();
-        // $member = Member::with('project', 'user')->get();
-        // dd($member);
-    }
-
-    public function root()
-    {
-        return view('index');
+        return view('dashboard');
     }
 
     /*Language Translation*/
